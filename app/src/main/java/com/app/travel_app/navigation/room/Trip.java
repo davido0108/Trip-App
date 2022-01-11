@@ -8,27 +8,32 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "trip_table")
-public class Trip {
+import java.io.Serializable;
 
-    @PrimaryKey
-    @NonNull
+@Entity(tableName = "trip_table")
+public class Trip implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
+    //@ColumnInfo(name="id")
+    private int id;
     @ColumnInfo(name="name")
     private String name;
     @ColumnInfo(name="destination")
     private String destination;
+    @ColumnInfo(name="type")
+    private TripType tripType;
     @ColumnInfo(name="price")
-    private double price;
-    @ColumnInfo(name="ratin")
+    private int price;
+    @ColumnInfo(name="rating")
     private int rating;
     @ColumnInfo(name="startDate")
     private String startDate;
     @ColumnInfo(name="endDate")
     private String endDate;
     @Ignore
-    private Bitmap image;
+    private int image;
 
-    public Trip(String name, String destination, double price, int rating, String startDate, String endDate/*, Bitmap image*/) {
+    public Trip(String name, String destination, TripType tripType, int price, int rating, String startDate, String endDate/*, Bitmap image*/) {
         this.name = name;
         this.destination = destination;
         this.price = price;
@@ -36,6 +41,16 @@ public class Trip {
         this.startDate = startDate;
         this.endDate = endDate;
         //this.image = image;
+        this.tripType = tripType;
+    }
+
+
+    public TripType getTripType() {
+        return tripType;
+    }
+
+    public void setTripType(TripType tripType) {
+        this.tripType = tripType;
     }
 
     public String getName() {
@@ -54,11 +69,11 @@ public class Trip {
         this.destination = destination;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -86,24 +101,34 @@ public class Trip {
         this.endDate = endDate;
     }
 
-    public Bitmap getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(Bitmap image) {
+    public void setImage(int image) {
         this.image = image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "Trip{" +
-                "Name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", destination='" + destination + '\'' +
+                ", tripType=" + tripType +
                 ", price=" + price +
                 ", rating=" + rating +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
-                ", image='" + image + '\'' +
+                ", image=" + image +
                 '}';
     }
 }

@@ -7,13 +7,6 @@
     android:padding="16dp"
     >
 
-    <TextView
-        android:id="@+id/receive_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="none"
-        />
-
     <fragment
         android:id="@+id/add_trip_fragment"
         android:layout_width="match_parent"

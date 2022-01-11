@@ -16,4 +16,17 @@
     <string name="trip_name">Trip name:</string>
     <string name="insert_trip_name">insert_trip_name</string>
     <string name="save_button">Save</string>
+    <string name="delete_button">Delete</string>
+    <string name="type_name_hint">type name...</string>
+    <string name="type_destination_hint">type destination...</string>
+    <string name="type_trip_name">Name</string>
+    <string name="type_destination">Destination</string>
+    <string name="insert_destination">type destination...</string>
+    <string name="pick_date_textview">pick date...</string>
+    <string name="pick_date_text">pick_date</string>
+    <string name="city_break_rb">City Break</string>
+    <string name="sea_side">Sea Side</string>
+    <string name="mountains">Mountains</string>
+    <string name="update_trip">Update</string>
+    <string name="send_email_button">Send Email</string>
 </resources>

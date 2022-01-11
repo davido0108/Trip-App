@@ -1,8 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="0dp"
+        android:layout_height="229dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/sunset"
+            tools:layout_editor_absoluteX="-23dp"
+            tools:layout_editor_absoluteY="92dp" />
+
+    </androidx.cardview.widget.CardView>
 
 
+    <EditText
+        android:id="@+id/update_trip_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="348dp"
+        android:hint="type name..."
+        app:layout_constraintEnd_toEndOf="@+id/update_trip_destination"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/update_trip_destination"
+        app:layout_constraintTop_toTopOf="@+id/cardView3" />
 
+    <EditText
+        android:id="@+id/update_trip_destination"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="24dp"
+        android:hint="@string/type_destination_hint"
+        app:layout_constraintBottom_toTopOf="@+id/update_startdate_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cardView3" />
+
+    <TextView
+        android:id="@+id/update_price_seek_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="685dp"
+        android:layout_marginEnd="151dp"
+        android:text="Price in Euro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/update_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:max="500"
+        android:progress="200"
+        app:layout_constraintBottom_toTopOf="@+id/update_button"
+        app:layout_constraintEnd_toEndOf="@+id/update_trip_destination"
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintStart_toStartOf="@+id/update_trip_destination" />
+
+    <TextView
+        android:id="@+id/update_startdate_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="24dp"
+        android:hint="@string/pick_date_textview"
+        app:layout_constraintBottom_toTopOf="@+id/update_button2"
+        app:layout_constraintStart_toStartOf="@+id/update_button2" />
+
+    <Button
+
+        android:id="@+id/button10"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="105dp"
+        android:onClick="updateStartDateOpenDatePickerOnClick"
+        android:text="Start Date"
+        android:textSize="30px"
+        app:layout_constraintBottom_toBottomOf="@+id/update_price"
+        app:layout_constraintEnd_toStartOf="@+id/update_button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_trip_name"
+        app:layout_constraintVertical_bias="0.493" />
+
+    <TextView
+        android:id="@+id/update_enddate_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="20dp"
+        android:hint="pick date..."
+        app:layout_constraintBottom_toTopOf="@+id/button10"
+        app:layout_constraintStart_toStartOf="@+id/update_trip_destination" />
+
+    <Button
+        android:id="@+id/update_button2"
+        android:layout_width="146dp"
+        android:layout_height="43dp"
+
+        android:layout_marginEnd="19dp"
+
+        android:onClick="updateEndDateOpenDatePickerOnClick"
+        android:text="End Date"
+        android:textSize="30px"
+        app:layout_constraintBottom_toBottomOf="@+id/button10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button10"
+        app:layout_constraintTop_toTopOf="@+id/button10"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="70dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/button10"
+        app:layout_constraintTop_toBottomOf="@+id/update_button2" />
+
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="765dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="72dp"
+        android:text="@string/update_trip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/update_price"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="330dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="823dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="17dp"
+        android:text="@string/delete_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/update_rg"
+        android:layout_width="295dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="89dp"
+        android:layout_marginBottom="557dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <RadioButton
+            android:id="@+id/update_radio_mountains"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:onClick="onRadioUpdateButtonClicked"
+            android:text="@string/mountains"
+            app:layout_constraintBottom_toBottomOf="@+id/update_trip_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+        <RadioButton
+            android:id="@+id/update_radio_sea_side"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="onRadioUpdateButtonClicked"
+            android:text="@string/sea_side"
+            app:layout_constraintBaseline_toBaselineOf="@+id/update_radio_mountains"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RadioButton
+            android:id="@+id/update_radio_city_break"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:onClick="onRadioUpdateButtonClicked"
+            android:text="@string/city_break_rb"
+            app:layout_constraintBaseline_toBaselineOf="@+id/update_radio_mountains"
+            app:layout_constraintEnd_toStartOf="@+id/update_radio_mountains" />
+
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

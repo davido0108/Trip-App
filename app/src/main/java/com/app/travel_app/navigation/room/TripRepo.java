@@ -1,6 +1,7 @@
 package com.app.travel_app.navigation.room;
 
 import android.app.Application;
+import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 
@@ -10,6 +11,7 @@ public class TripRepo {
 
     private TripDao tripDao;
     private LiveData<List<Trip>> trips;
+    private LiveData<List<Trip>> sortedTrips;
 
     TripRepo(Application application){
         TripRoomDatabase db = TripRoomDatabase.getDatabase(application);
@@ -17,14 +19,6 @@ public class TripRepo {
         trips = tripDao.getAlphabetizedTrips();
     }
 
-/*    public ArrayList<Trip> getTrips(){
-        trips.add(new Trip("Trip 1","Destinatie 1", 4.0d,3,"22/10/17","22/11/17","image1"));
-        trips.add(new Trip("Trip 2","Destinatie 2", 4.0d,3,"22/10/17","22/11/17","image1"));
-        trips.add(new Trip("Trip 3","Destinatie 3", 4.0d,3,"22/10/17","22/11/17","image1"));
-        trips.add(new Trip("Trip 4","Destinatie 4", 4.0d,3,"22/10/17","22/11/17","image1"));
-        trips.add(new Trip("Trip 5","Destinatie 5", 4.0d,3,"22/10/17","22/11/17","image1"));
-        return trips;
-    }*/
 
     LiveData<List<Trip>> getAllWords() {
         return trips;
@@ -38,4 +32,26 @@ public class TripRepo {
         });
     }
 
+    public void update(Trip trip){
+        TripRoomDatabase.databaseWriteExecutor.execute(()->{
+            tripDao.update(trip);
+        });
+    }
+
+    public void remove(Trip trip) {
+        TripRoomDatabase.databaseWriteExecutor.execute(()->{
+            tripDao.delete(trip);
+        });
+    }
+
+    LiveData<List<Trip>> sortByTrip(String tripType) {
+
+
+        TripRoomDatabase.databaseWriteExecutor.execute(()->{
+
+            sortedTrips = tripDao.getTrips(tripType);
+
+        });
+        return  sortedTrips;
+    }
 }
